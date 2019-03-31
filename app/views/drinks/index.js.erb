@@ -1,0 +1,2 @@
+document.getElementById('results').innerHTML = '';
+$("<%= escape_javascript(render 'search', drinks: @drinks) %>").appendTo("#results");
