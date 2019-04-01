@@ -23,21 +23,6 @@
 </div>
 
 <div class="row">
-  <div class="col-12">
-    <label for="alcohol_level">Temperature</label><br>
-    <% Drink.temperatures.sort.each_with_index do | t,i | %>
-    <div class="form-group form-check-inline">
-      <label class="form-check-label">
-        <input class="form-check-input" type="radio"
-        name="temperature" id="temperatureRadio<%= t.last %>"
-        value="<%= t.last %>"> <%= t.first.split('_').join(' ').capitalize %>
-      </label>
-    </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="row">
   <div class="col-6">
     <div class="form-group">
       <label for="exampleSelect1">Base ingredient</label>
@@ -51,35 +36,10 @@
   </div>
   <div class="col-6">
     <div class="form-group">
-      <label for="exampleSelect1">Origin</label>
-      <select class="form-control" id="origin" name="origin">
-        <option value=""></option>
-        <% Drink.select("DISTINCT(origin)").order(:origin).each_with_index do | o,i | %>
-        <option value="<%= o.origin %>"><%= o.origin %></option>
-        <% end %>
-      </select>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-6">
-    <div class="form-group">
       <label for="alcohol_level">Bitterness</label>
       <input class="form-control" type="range" name="ibu" min="0" max="10"
       oninput="mostrarPorcentagem(this.value, this.name)" value="0">
       <small id="ibuValue" class="form-text text-muted">0 - 10</small>
-    </div>
-  </div>
-  <div class="col-6">
-    <div class="form-group">
-      <label for="drinkware">Drinkware</label>
-      <select class="form-control" id="drinkware" name="drinkware">
-        <option value=""></option>
-        <% Drink.select("DISTINCT(drinkware)").order(:drinkware).each_with_index do | d,i | %>
-        <option value="<%= d.drinkware %>"><%= d.drinkware %></option>
-        <% end %>
-      </select>
     </div>
   </div>
 </div>
