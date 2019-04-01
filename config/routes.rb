@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: 'drinks#index'
 
   resources :home, only: %i[index]
+  get 'drinks/recommendation', to: 'drinks#recommendation', as: 'drinks_recommendation'
 end

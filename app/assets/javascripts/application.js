@@ -25,8 +25,21 @@ function ready(event) {
     else if (this.value === 'advanced') {
       $('.simple-form').hide();
       $('.advanced-form').show();
+      $('#modalRecomendation').modal('show');
     }
   });
+
+  $('#showSubmit').click(function(){
+    $('#modalRecomendation').modal('hide');
+  });
+
+  $('#modalRecomendation').on('hidden.bs.modal', function () {
+     $("#advancedSearch").prop("checked", false);
+  });
+}
+
+function mostrarPorcentagem(novoValor, name) {
+  document.getElementById(name+'Value').innerHTML = novoValor;
 }
 
 $(document).on('turbolinks:load', ready);

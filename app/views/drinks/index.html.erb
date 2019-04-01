@@ -16,10 +16,10 @@
       </div>
     </div>
 
-    <%= form_tag do %>
+    <%= form_tag(root_path, method:"get", remote: true ) do %>
       <div class="simple-form">
         <div class="simple-form__input">
-          <input class="form-control form-control-lg" type="text" placeholder="Try a Martini..">
+          <%= text_field_tag :name, params[:name], class:"form-control form-control-lg", placeholder:"Try a Martini.." %>
         </div>
         <div class="simple-form__btn">
           <button type="submit" class="btn btn-outline-primary btn-lg">Search</button>
@@ -27,12 +27,34 @@
       </div>
 
       <div class="advanced-form" style="display:none;">
-        User inputs to search a collection of drinks based on given recommendations.
+        Drinks by recommendation.
       </div>
     <% end %>
   </div>
 
   <div class="drinks-list" id="results">
     <%= render 'search' %>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalRecomendation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Your preferences</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_tag(drinks_recommendation_path, method:"get", remote: true ) do %>
+      <div class="modal-body">
+          <%= render 'form' %>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" id="showSubmit">Show</button>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
