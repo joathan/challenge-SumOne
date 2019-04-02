@@ -27,7 +27,7 @@
       <label for="exampleSelect1">Base ingredient</label>
       <select class="form-control" id="base_ingredient" name="base_ingredient">
         <option value=""></option>
-        <% @drink.distinct_base_ingredient.each_with_index do | d,i | %>
+        <% @drink.distinct_base_ingredient.each do | d | %>
         <option value="<%= d.base_ingredient %>"><%= d.base_ingredient.capitalize %></option>
         <% end %>
       </select>
