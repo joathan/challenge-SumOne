@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Drink do
-  subject(&method(:drink))
+  subject { drink }
 
   let(:drink) { FactoryBot.build :drink }
   describe 'validation successful' do
