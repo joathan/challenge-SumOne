@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <%= form_tag(root_path, method:"get", remote: true ) do %>
+    <%= form_tag(drinks_recommendation_path, method:"get", remote: true ) do %>
       <div class="simple-form">
         <div class="simple-form__input">
           <%= text_field_tag :name, params[:name], class:"form-control form-control-lg", placeholder:"Try a Martini.." %>
