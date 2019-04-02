@@ -1,4 +1,6 @@
-# SumOne Programming Challenge
+# SumOne Programming Challenge 
+
+# My Solution: https://challenge-sumone.herokuapp.com
 
 ## The drink searcher
 
