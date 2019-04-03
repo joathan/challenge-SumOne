@@ -10,11 +10,11 @@
   </div>
   <div class="col-6">
     <label for="alcohol_level">Distilled</label><br>
-    <% [true, false].each_with_index do |k, i| %>
+    <% true_false.each_with_index do |k, i| %>
       <div class="form-group form-check-inline">
         <label class="form-check-label">
           <input class="form-check-input" type="radio"
-          name="distilled" <%= i == 1 ? 'checked' : ''%>
+          name="distilled" checked
           id="distilledRadio<%= i %>" value="<%= k %>"> <%= i == 0 ? 'Yes' : 'No' %>
         </label>
       </div>
@@ -27,8 +27,8 @@
       <label for="exampleSelect1">Base ingredient</label>
       <select class="form-control" id="base_ingredient" name="base_ingredient">
         <option value=""></option>
-        <% @drink.distinct_base_ingredient.each do | d | %>
-        <option value="<%= d.base_ingredient %>"><%= d.base_ingredient.capitalize %></option>
+        <% distinct_base_ingredient.each do | d | %>
+        <option value="<%= d %>"><%= d.capitalize %></option>
         <% end %>
       </select>
     </div>

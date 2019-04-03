@@ -4,11 +4,10 @@ class DrinksController < ApplicationController
   before_action :select_all, only: %i[index]
 
   def index
-    @drink = Drink.new
   end
 
   def recommendation
-    @drinks = Drink.search(drink_params).page params[:page]
+    @drinks = DrinkService.new.search(drink_params).page params[:page]
     respond_to do |format|
       format.html
       format.js { render 'drinks/index' }
